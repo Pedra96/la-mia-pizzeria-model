@@ -6,16 +6,26 @@ namespace La_Mia_Pizzeria_1.Utils {
         private static List<Pizza> pizzas;
 
         public static List<Pizza> GetPizzas() {
+            string[] PizzasTitle = { "Margherita", "Peperoni", "Vegetariana" };
+            
+            string[] PizzaDesc = { "Una pizza classica con salsa di pomodoro, mozzarella e basilico fresco."
+            ,"Una pizza salata con salsa di pomodoro, mozzarella e peperoni piccanti.","Una gustosa pizza con salsa di pomodoro, mozzarella e una varietà di verdure."};
+            
+            string[] PizzaImage = { "https://primochef.it/wp-content/uploads/2019/08/SH_pizza_fatta_in_casa-1200x800.jpg", "https://www.ristorantelespecialita.it/wp-content/uploads/2016/04/Pizza-con-peperoni.jpg"
+            ,"https://i0.wp.com/farinespeciali.it/wp-content/uploads/2021/09/pizza-con-avocado-olive-cipolla.jpg?fit=1200%2C800&ssl=1"};
+            
+            string[] PizzaPrice = { "$10", "$12", "$11" };
+
 
             if (pizzas != null) {
                 return pizzas;
             }
 
             pizzas = new List<Pizza>();
-            for (int i = 0; i < 10; i++) {
-                Pizza postGenerato = new Pizza(i, "Titolo post: " + i, 
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", "https://picsum.photos/id/" + i + "/300");
-                pizzas.Add(postGenerato);
+            for (int i = 0; i < PizzasTitle.Length; i++) {
+                Pizza PizzaGenerato = new Pizza(i, PizzasTitle[i], PizzaDesc[i], PizzaImage[i], PizzaPrice[i]);
+                pizzas.Add(PizzaGenerato);
+
             }
             return pizzas;
 
